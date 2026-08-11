@@ -1,0 +1,17 @@
+# Ignorar la carpeta Article_Template completa
+Article_Template/
+
+# Ignorar archivos temporales de LaTeX en cualquier subcarpeta
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.pdfsync
+*.lof
+*.lot
