@@ -1,0 +1,124 @@
+\documentclass[a4paper, amsfonts, amssymb, amsmath, reprint, showkeys, nofootinbib, twoside]{revtex4-2}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[colorinlistoftodos, color=green!40, prependcaption]{todonotes}
+\input{preamble}
+\usepackage[pdftex, pdftitle={Article}, pdfauthor={Author}]{hyperref} % Para enlaces en el PDF
+%\setlength{\marginparwidth}{2.5cm}
+%\bibliographystyle{apsrev4-1} 
+\begin{document}
+\title{Wave guides as an analogous system of 1D optical lattice for anyons}
+
+\author{Ronaldo Navarro Ambriz}
+    \email[Correspondence email address: ]{ron@estudiantes.unam.fisi}% Correo asociado 
+    \affiliation{Instituto de Física, Universidad Nacional Autónoma de México, Ciudad de México, México} 
+\author{Santiago Francisco Caballero Benítez}
+    \email[Correspondence email address: ]{scaballero@fisica.unam.mx}% Correo asociado 
+    \affiliation{Instituto de Física, Universidad Nacional Autónoma de México, Ciudad de México, México}
+
+\date{\today} % Se puede cambiar o quitar, se usara para parte de llevar un registro 
+
+\begin{abstract}
+\lipsum[1]
+\end{abstract}
+
+\keywords{anyons, quantum matter, ultracold atoms}
+
+
+\maketitle
+
+%\input{sections/acknowledgements.tex}
+\section{Introduction} 
+Los anyones son ... 
+\section{Main Idea} 
+\begin{tikzpicture}[scale=0.7]
+  % --- Define parameters ---
+  \def\spacing{1.8} % Horizontal spacing between circles
+  \def\ballradius{1.05} % Radius of the circles
+
+  % --- Draw the chain ---
+  % Dots on the left
+  \foreach \x in {-5.5, -5.1, -4.7}
+    \fill[black] (\x, 0) circle (0.05);
+
+  % Simplified blue circles
+  \foreach \j/\label in {-2/{j-2}, -1/{j-1}, 0/{j}, 1/{j+1}, 2/{j+2}} {
+    \node[circle, draw=blue, fill=blue!30, minimum size=\ballradius*0.5cm, font=\small] (N\j) at (\j*\spacing, 0) {$\label$};
+  }
+
+  % Dots on the right
+  \foreach \x in {4.7, 5.1, 5.5}
+    \fill[black] (\x, 0) circle (0.05);
+
+  % Red solid arrows for coupling
+  \draw[<->, red, thick] (N-2) to[bend left=45] node[above=2pt, black] {$g_1$} (N-1);
+  \draw[<->, red, thick] (N-1) to[bend right=45] node[below=2pt, black] {$g_1$} (N0);
+  \draw[<->, red, thick] (N0) to[bend left=45] node[above=2pt, black] {$g_1$} (N1);
+  \draw[<->, red, thick] (N1) to[bend right=45] node[below=2pt, black] {$g_1$} (N2);
+\end{tikzpicture} 
+Para las guías de onda:
+\begin{itemize}
+    \item Una guía de onda pose un indice de refracción en el otro núcleo, rodeado por otro de menor indice $n_1 < n_2$
+    \item Para una única guía de onda, los modos admitidos están dados por sus características físicas. 
+    \item Un arreglo de guías de onda, el acoplamiento permitirá la transferencia entre los elementos del arreglo.
+\end{itemize}
+\begin{align}
+    i \frac{dE_j(z)}{dz} = g_1 (E_{j-1} + E_{j+1}), \quad j = -\infty, \dots, \infty,
+\end{align}
+
+\begin{align}
+     i \frac{d|\psi(z)\rangle}{dz} = \hat{H}|\psi(z)\rangle, \quad \hat{H} = g_1 \left( \hat{V}_\infty + \hat{V}_\infty^\dagger \right),
+\end{align}
+
+\begin{align}
+      \hat{V}_\infty = \sum_{n=-\infty}^{\infty} |n\rangle \langle n+1|, 
+\quad \hat{V}_\infty^\dagger = \sum_{n=-\infty}^{\infty} |n+1\rangle \langle n|, 
+\end{align}
+
+Algo importante de estos operadores es que cumplen con
+\begin{align*}
+    \left[\hat{V}_\infty, \hat{V}_\infty^\dagger\right] &= 0, \qquad \hat{V}_\infty \hat{V}_\infty^\dagger = \hat{I},
+\end{align*}
+Dada una condición inicial de $n$ partículas en el sitio $0$ de una cadena infinita $\ket{\psi(0)} = \ket{n_0}$, la solución formal a la ecuación de Schrödinger es:
+\[
+\ket{\psi_{n_0}(z)} = \exp\left[-g_1 z \left(i\hat{V}_\infty^\dagger - \frac{1}{i\hat{V}_\infty^\dagger}\right)\right] \ket{n_0}.
+\]
+Donde podemos identificar la función generadora de las funciones Bessel$^1$ $^2$, para obtener
+\[
+\ket{\psi_{n_0}(z)} = \sum_{n=-\infty}^{\infty} J_n(-2g_1 z)i^n \hat{V}_\infty^{\dagger n} \ket{n_0}.
+\] 
+para este modelo podemos hacer una analogía con un modelo de bosones en una red óptica partiendo del operador $\hat{V}_\infty$ y la evolución será escrita en función del tiempo:
+\[
+\hat{V}_\infty = \sum_{n=-\infty}^{\infty} \hat{b}_n^\dagger  \hat{b}_{n+1}, \quad \hat{V}_\infty^\dagger = \sum_{n=-\infty}^{\infty} \hat{b}_{n+1}^\dagger \hat{b}_{n}  
+\] 
+\[
+\ket{\psi_{n_0}(t)} = \sum_{n=-\infty}^{\infty} J_n(-2 J t)i^n \hat{V}_\infty^{\dagger n} \ket{n_0}.
+\]  
+Para diferentes estados iniciales tenemos diferentes representaciones para el operador $\hat{V}^{\dagger n}_\infty$, como lo son una partícula centrada, dos partículas centradas en un sitio y dos partículas centradas en dos sitios:
+\[
+\hat{V}^{\dagger n}_\infty |1_0\rangle = \hat{c}^\dagger_n |0\rangle
+\] 
+\[
+\hat{V}^{\dagger n}_\infty |2_0\rangle = \frac{1}{\sqrt{2}} \sum_{k=0}^n \binom{n}{k} \hat{c}^\dagger_n \hat{c}^\dagger_{n-k} |0\rangle
+\]  
+\[
+\hat{V}^{\dagger n}_\infty |1_0, 1_1\rangle = \sum_{k=0}^n \binom{n}{k} \hat{c}^\dagger_{-k} \hat{c}^\dagger_{1-(n-k)} |0\rangle
+\]  
+
+
+Y dependiendo del estado inicial podemos encontrar una forma cerrada para la resolución de valores de expectación: 
+\[ 
+\langle \hat{n}_j \rangle = |\mathrm{J}_j ( -2Jt)|^2
+\] 
+\[ 
+\mathrm{S}(q) = \sum_{l=0}^M |\mathrm{J}_l ( -2Jt)|^2 - \sum_{l, m=0}^M e^{\mathrm{iq}(l-m)} |\mathrm{J}_l ( -2Jt)|^2  |\mathrm{J}_m ( -2Jt)|^2
+\] 
+\section{Conclusion}
+
+\bibliographystyle{unsrt}
+\bibliography{referencias}
+
+\appendix*
+\input{sections/appendix1.tex}
+
+\end{document}
