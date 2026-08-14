@@ -32,7 +32,7 @@
 Los anyones son ... 
 \section{Main Idea} 
 Del Hamiltoniano de bosones condicionados: 
-\begin{equation}
+\begin{equation}\label{HamideAny}
 \mathcal{H}^b=-J\sum_{i=1}^M \left( \hat{b}_{i}^\dagger   \hat{b}_{i+1} e^{\textit{i} \theta \hat{n}_i} + h.c. \right) + \frac{U}{2} \sum_{i=1}^M \hat{n}_i \left( \hat{n}_i - 1 \right),
 \end{equation}
 Añadiendo el término de cavidad: 
@@ -43,6 +43,14 @@ Obteniendo el Hamiltoniano extendido:
 \begin{equation} 
 \mathcal{H}^b_{ext} = \mathcal{H}^b +\mathcal{H}_{cav}
 \end{equation} 
+The original Hamiltonian \eqref{HamideAny} breaks the inversion symmetry $\mathcal{I}$, as the particles in the chain adquire a phase due a site occupation. 
+Result, only for a change of sign in both term we will observe a total reflection in the quantum walk
+\begin{equation} 
+\langle \hat{n}_j (t) \rangle_{+U, +g}  = \langle \hat{n}_j'´ (t) \rangle_{-U, -g} 
+\end{equation} 
+\begin{equation} 
+\langle \hat{n}_j (t) \rangle_{+U, -g}  = \langle \hat{n}_j' (t) \rangle_{-U, +g} 
+\end{equation}
 
 \section{Conclusion}
 
