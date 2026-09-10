@@ -35,7 +35,32 @@ From the previous work with bose gases in one-dimesional lattices \cite{PhysRevA
 \begin{equation}\label{HamideAny}
 \mathcal{H}^b=-J\sum_{i=1}^M \left( \hat{b}_{i}^\dagger   \hat{b}_{i+1} e^{\textit{i} \theta \hat{n}_i} + h.c. \right) + \frac{U}{2} \sum_{i=1}^M \hat{n}_i \left( \hat{n}_i - 1 \right),
 \end{equation} 
- 
+where $\hat{b}^\dagger_i$ and $\hat{b}_i$ are the creation and annihilation operators of bosons in the lowest Wannier band at site $i$ respectively and $\hat{n}_i = \hat{a}^\dagger_i \hat{a}_i$ is the number occupation operator. \\
+In order to compute the superfluity of the system, we follow the work for bosons \cite{PhysRevA.67.031602} imposing a phase twist $\phi$ in the entire system for a local unitary transformation to map twisted boundary conditions onto the Hamiltonian \cite{PhysRevB.44.9562, PhysRevLett.65.243}. This permits rewrite the Hamiltonian as:
+\begin{equation}\label{HamideAnyWithPhase}
+\mathcal{H}^b_\phi=-J\sum_{i=1}^M \left( e^{-\textit{i}\phi/M} \hat{b}_{i}^\dagger   \hat{b}_{i+1} e^{\textit{i} \theta \hat{n}_i} + h.c. \right) + \frac{U}{2} \sum_{i=1}^M \hat{n}_i \left( \hat{n}_i - 1 \right),
+\end{equation} 
+this factor in the hopping term is usually called Peierls phase factor \cite{PhysRevLett.65.243}. From the differences of ground energies between the twisted system and the original system we obtain the superfluid fraction \cite{SRapsch_1999}
+\begin{equation} 
+f_s = \frac{M^2}{N} \left( \frac{E_\phi - E_0}{J \phi^2} \right), 
+\end{equation}
+Expanding the terms for the Peierls phase, we obtain: 
+\begin{equation} 
+\textbf{H} \approx  \textbf{H}_0 + \left( \frac{\phi}{M} \right) \textbf{J} + \left( \frac{\phi^2}{2M^2} \right) \textbf{T} = \textbf{H}_0 + \textbf{H}_{pert}, 
+\end{equation} 
+For the system we defined the following operators: 
+\begin{equation} 
+\textbf{J} = \textit{i} J \sum_{i=1}^M \left(e^{-\textit{i} \theta\hat{n}_i}  \hat{b}_{i+1}^\dagger\hat{b}_i -   \hat{b}_{i}^\dagger\hat{b}_{i+1} e^{\textit{i} \theta\hat{n}_i} \right)
+\end{equation}
+\begin{equation} 
+\textbf{T} = J \sum_{i=1}^M \left(e^{-\textit{i}\theta\hat{n}_i}  \hat{b}_{i+1}^\dagger\hat{b}_i +   \hat{b}_{i}^\dagger\hat{b}_{i+1} e^{\textit{i}\theta\hat{n}_i} \right)
+\end{equation}
+
+and we find the superdluid fraction by perturbation theory
+\begin{equation} 
+f_s = \frac{M^2}{NJ\phi^2} \left( \frac{\phi}{M} \langle \Psi_0 | \textbf{J} | \Psi_0 \rangle - \frac{\phi^2}{2M} \langle \Psi_0 | \textbf{T} | \Psi_0 \rangle - \sum_{k\neq 0 } \frac{1}{E_k^{(0)} - E_0^{(0)}} \left( | \langle \Psi_k | \frac{\phi}{M}\textbf{J} - \frac{\phi^2}{2M} \textbf{T} | \Psi_0 \rangle |^2 \right) \right)
+\end{equation}
+
 \begin{figure}[htbp]
     \centering
 	\includegraphics[scale=0.3]{Imagenes/fraction-superfluid-anyons-30.png} 
