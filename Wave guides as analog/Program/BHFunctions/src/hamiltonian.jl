@@ -6,7 +6,7 @@ function occupation(i, state_v)
     end  
 end
 
-# stado inicial
+# Estado inicial
 function initial_state(v, D, M)
     vector = zeros(D)
     counter_position = 1;
@@ -75,7 +75,7 @@ function crea_crea_ann_ann(k,c,j,g,v)
 end      
 
 # ---------------------------------------------------------
-# GENERACIÓN DE MATRICES Y DICCIONARIOS
+# Generación de matrices y diccionarios
 # ---------------------------------------------------------
 
 # 
@@ -92,19 +92,7 @@ function generate_matrices(v, D, M)
     end
     return matricesdeoc
 end
-
-# 
-function build_index_dictionary(v, M)
-    T = Float64[]
-    for i in 1:length(v) 
-         push!(T,  tag(v[i] , M)) 
-    end
-    inds = sortperm(T);
-    Tsorted = T[inds];
-    return Dict(Tsorted .=> inds) 
-end
-
-# 
+#
 function matrix_of_crea_crea_ann_ann(i, d, k, g, D, M, v, DictOfInds)
     mat = zeros(D,D)
     for j in 1:D 
@@ -129,7 +117,7 @@ function matrixofcreacreationannann(i, k, D, M, v, DictOfInds)
 end
 
 # ---------------------------------------------------------
-# HAMILTONIANO PRINCIPAL
+# Hamiltoniano
 # ---------------------------------------------------------
 
 # REORDENAMOS ARGUMENTOS: Los que NO tienen valor por defecto van PRIMERO.
