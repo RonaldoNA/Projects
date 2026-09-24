@@ -61,25 +61,27 @@ Para las guías de onda:
     \item Una guía de onda pose un indice de refracción en el otro núcleo, rodeado por otro de menor indice $n_1 < n_2$
     \item Para una única guía de onda, los modos admitidos están dados por sus características físicas. 
     \item Un arreglo de guías de onda, el acoplamiento permitirá la transferencia entre los elementos del arreglo.
-\end{itemize}
+\end{itemize} 
+From an inifinite waveguides array with homogeneous optical single mode waveguides and equally spaced along z-axis. This is described by the
+following differential equation \cite{Jones1965Coupling}	
 \begin{align}
     i \frac{dE_j(z)}{dz} = g_1 (E_{j-1} + E_{j+1}), \quad j = -\infty, \dots, \infty,
 \end{align}
 From this 
 \begin{align}
      i \frac{d|\psi(z)\rangle}{dz} = \hat{H}|\psi(z)\rangle, \quad \hat{H} = g_1 \left( \hat{V}_\infty + \hat{V}_\infty^\dagger \right),
-\end{align}
-
+\end{align} 
+where the operators $\hat{V}_\infty$ and $\hat{V}^\dagger_\infty$ are the infinite counterparts of the London-Susskind–Glogower operators
+\cite{London1926, Susskind1964}, defined as
 \begin{align}
       \hat{V}_\infty = \sum_{n=-\infty}^{\infty} |n\rangle \langle n+1|, 
 \quad \hat{V}_\infty^\dagger = \sum_{n=-\infty}^{\infty} |n+1\rangle \langle n|, 
 \end{align}
-
-Algo importante de estos operadores es que cumplen con
+For an analytical solution we need to satisfy in our Hilbert space the following conditions for the LSG operator
 \begin{align*}
     \left[\hat{V}_\infty, \hat{V}_\infty^\dagger\right] &= 0, \qquad \hat{V}_\infty \hat{V}_\infty^\dagger = \hat{I},
 \end{align*}
-In this framework the initial state is a photon in the $n$ site of an infinite array of waveguides $\ket{\psi(0)} = \ket{n_0}$, la solución formal a la ecuación de Schrödinger es:
+In this framework the initial state is a photon in the $n$ site of an infinite array of waveguides $\ket{\psi(0)} = \ket{n_0}$,:
 \[
 \ket{\psi_{n_0}(z)} = \exp\left[-g_1 z \left(i\hat{V}_\infty^\dagger - \frac{1}{i\hat{V}_\infty^\dagger}\right)\right] \ket{n_0}.
 \]
@@ -94,7 +96,7 @@ para este modelo podemos hacer una analogía con un modelo de bosones en una red
 \[
 \ket{\psi_{n_0}(t)} = \sum_{n=-\infty}^{\infty} J_n(-2 J t)i^n \hat{V}_\infty^{\dagger n} \ket{n_0}.
 \]  
-For the representation of $\hat{V}^{\dagger n}_\infty$ in the framework of optical lattices, we apply $n$ times for :
+For the representation of $\hat{V}^{\dagger n}_\infty$ is valid in the framework of optical lattices,if we apply $n$ times for subspace of :
 \begin{equation}
 \hat{V}^{\dagger n}_\infty |1_0\rangle = \hat{c}^\dagger_n |0\rangle
 \end{equation}
