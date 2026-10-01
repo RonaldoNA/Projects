@@ -1,2 +1,39 @@
 \section{Appendix} \label{sec:appendix}
-    \lipsum[9-11]
+In this paper we suggest to calculate the operator from active representations due the feasibility of operations 
+\subsection{Active representation of $\hat{n}_j$ operator} 
+We obtain for a $\|\psi\rangle$ as steady state and $\hat{b}^\dagger$ as dynamic operator, write as: 
+\begin{equation} 
+\hat{b}_j^\dagger(t) = \sum_{m=-\infty}^\infty i^{m-j} J_{m-j}(-2Jt) \hat{b}_m^\dagger(0), 
+\end{equation} 
+so the expected value of $\hat{n}_j$ is: 
+\begin{equation}
+\begin{split}
+    \langle \hat{n}_j (t) \rangle &= \langle \psi(0)| \hat{b}_j^\dagger(t) \hat{b}_j (t) | \psi(0) \rangle, \\
+         &= \langle \psi(0)| \sum_{m,m'=-\infty}^\infty i^{m-m'} J_{m-j}(-2Jt) J_{m'-j} (-2Jt) \\
+         &\quad \hat{b}_m^\dagger   \hat{b}_m | \psi(0) \rangle,
+\end{split}
+\end{equation}
+In general we get a 1-d chain, if we annihilate at $m'$ site and create at $m$ we will obtain an orthogonal state, so for the different values of $m\neq m'$ we will obtain zero, so for an arbitrary inital state we get: 
+\begin{equation} 
+\langle \hat{n}(t) \rangle = \sum_{m=-\infty}^\infty |J_{m-j}(-2Jt)|^2 \langle \hat{n}_m(0) \rangle
+\end{equation} 
+%\begin{equation}
+%\begin{split}
+%    \langle \hat{n}_j (t) \rangle &= \langle \psi(0)| \hat{b}_j^\dagger(t) \hat{b}_j (t) | \psi(0) \rangle, \\
+%         &= \langle \psi(0)| \sum_{m,m'=-\infty}^\infty i^{m-m'} J_{m-j}(-2Jt) J_{m'-j} (-2Jt) \hat{b}_m^\dagger   \hat{b}_m | \psi(0) \rangle,
+%\end{split}
+%\end{equation}
+\subsection{Passive representation of $\hat{n}_j$ operator}
+For this framework we need to specify the initial state, first, for 2 particles in the sites $j$, $j'$ respectively, with $j\neq j'$, the state as function of time is 
+\begin{equation} 
+|\psi(t) \rangle = e^{-i\mathcal{H} t} |\psi(0)\rangle = e^{-i\mathcal{H} t} \hat{b}_j^\dagger \hat{b}_{j'}^\dagger |0\rangle ,
+\end{equation}  
+as the temporal propagator is unitary we use the identity to get the following expressions 
+\begin{equation}
+\begin{split}
+    |\psi(t) \rangle &= e^{-i\mathcal{H} t} \hat{b}_j^\dagger \mathcal{I} \hat{b}_{j'}^\dagger \mathcal{I} |0\rangle  \\
+         &= e^{-i\mathcal{H} t} \hat{b}_j^\dagger e^{i\mathcal{H} t} e^{-i\mathcal{H} t} \hat{b}_{j'}^\dagger  e^{i\mathcal{H} t} e^{-i\mathcal{H} t} |0\rangle  \\
+         &= e^{-i\mathcal{H} t} \hat{b}_j^\dagger e^{i\mathcal{H} t} e^{-i\mathcal{H} t} \hat{b}_{j'}^\dagger  e^{i\mathcal{H} t} |0\rangle,
+\end{split}
+\end{equation}
+
