@@ -15,7 +15,7 @@ so the expected value of $\hat{n}_j$ is:
 \end{equation}
 In general we get a 1-d chain, if we annihilate at $m'$ site and create at $m$ we will obtain an orthogonal state, so for the different values of $m\neq m'$ we will obtain zero, so for an arbitrary inital state we get: 
 \begin{equation} 
-\langle \hat{n}(t) \rangle = \sum_{m=-\infty}^\infty |J_{m-j}(-2Jt)|^2 \langle \hat{n}_m(0) \rangle
+\langle \hat{n}_j (t) \rangle = \sum_{m=-\infty}^\infty |J_{m-j}(-2Jt)|^2 \langle \hat{n}_m(0) \rangle
 \end{equation} 
 %\begin{equation}
 %\begin{split}
@@ -35,5 +35,12 @@ as the temporal propagator is unitary we use the identity to get the following e
          &= e^{-i\mathcal{H} t} \hat{b}_j^\dagger e^{i\mathcal{H} t} e^{-i\mathcal{H} t} \hat{b}_{j'}^\dagger  e^{i\mathcal{H} t} e^{-i\mathcal{H} t} |0\rangle  \\
          &= e^{-i\mathcal{H} t} \hat{b}_j^\dagger e^{i\mathcal{H} t} e^{-i\mathcal{H} t} \hat{b}_{j'}^\dagger  e^{i\mathcal{H} t} |0\rangle,
 \end{split}
+\end{equation} 
+as the bosons obey time invariance $\hat{U}^\dagger \hat{b}^\dagger \hat{U} = \hat{U} \hat{b}^\dagger \hat{U}^\dagger$ 
+\begin{equation} 
+|\psi(t) \rangle = \hat{b}^\dagger_j \hat{b}_{j'}^\dagger |0\rangle
 \end{equation}
-
+we derive $\hat{b}(t)$ from  
+\begin{equation} 
+\frac{d}{dt} \hat{b}_j^\dagger = \left[ \hat{b}_j^\dagger , \hat{H} \right]
+\end{equation}
