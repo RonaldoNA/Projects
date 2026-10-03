@@ -1,7 +1,7 @@
 \section{Appendix} \label{sec:appendix}
 In this paper we suggest to calculate the operator from active representations due the feasibility of operations 
 \subsection{Active representation of $\hat{n}_j$ operator} 
-We obtain for a $\|\psi\rangle$ as steady state and $\hat{b}^\dagger$ as dynamic operator, write as: 
+We obtain for a $|\psi\rangle$ as steady state and $\hat{b}^\dagger$ as dynamic operator, write as: 
 \begin{equation} 
 \hat{b}_j^\dagger(t) = \sum_{m=-\infty}^\infty i^{m-j} J_{m-j}(-2Jt) \hat{b}_m^\dagger(0), 
 \end{equation} 
@@ -40,7 +40,14 @@ as the bosons obey time invariance $\hat{U}^\dagger \hat{b}^\dagger \hat{U} = \h
 \begin{equation} 
 |\psi(t) \rangle = \hat{b}^\dagger_j \hat{b}_{j'}^\dagger |0\rangle
 \end{equation}
-we derive $\hat{b}(t)$ from  
+we derive the Heisenberg equation of motion $\hat{b}^\dagger(t)$ from  
 \begin{equation} 
-\frac{d}{dt} \hat{b}_j^\dagger = \left[ \hat{b}_j^\dagger , \hat{H} \right]
+i \frac{d}{dt} \hat{b}_j^\dagger = \left[ \hat{b}_j^\dagger , \hat{H} \right]
 \end{equation}
+doing the commutator with \eqref{NewHamiBos} obtain: 
+\begin{equation} 
+i \frac{d}{dt} \hat{b}_j(t)= -J \left( \hat{b}_{j-1} + \hat{b}_{j+1} \right) 
+\end{equation} 
+consistent with the phenomenology of \eqref{EqEner}, to solve this differential equation we can use the Fourier transform $\hat{b}_j^\dagger$ and return to the original space with an inverse Fourier transform:
+
+

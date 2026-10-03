@@ -64,7 +64,7 @@ Para las guías de onda:
 \end{itemize} 
 From an inifinite waveguides array with homogeneous optical single mode waveguides and equally spaced along z-axis. This is described by the
 following differential equation \cite{Jones1965Coupling}	
-\begin{align}
+\begin{align}\label{EqEner}
     i \frac{dE_j(z)}{dz} = g_1 (E_{j-1} + E_{j+1}), \quad j = -\infty, \dots, \infty,
 \end{align}
 From this 
@@ -90,9 +90,13 @@ Donde podemos identificar la función generadora de las funciones Bessel, para o
 \ket{\psi_{n_0}(z)} = \sum_{n=-\infty}^{\infty} J_n(-2g_1 z)i^n \hat{V}_\infty^{\dagger n} \ket{n_0}.
 \] 
 para este modelo podemos hacer una analogía con un modelo de bosones en una red óptica partiendo del operador $\hat{V}_\infty$ y la evolución será escrita en función del tiempo:
-\[
-\hat{V}_\infty = \sum_{n=-\infty}^{\infty} \hat{b}_n^\dagger  \hat{b}_{n+1}, \quad \hat{V}_\infty^\dagger = \sum_{n=-\infty}^{\infty} \hat{b}_{n+1}^\dagger \hat{b}_{n}  
-\] 
+\begin{align}
+\hat{V}_\infty = \sum_{j=-\infty}^{\infty} \hat{b}_j^\dagger  \hat{b}_{j+1}, \quad \hat{V}_\infty^\dagger = \sum_{j=-\infty}^{\infty} \hat{b}_{j+1}^\dagger \hat{b}_{j} ,
+\end{align}
+Rewriting the Hamiltonian as 
+\begin{equation}\label{NewHamiBos}
+\hat{H} = -J \sum_{j=-\infty}^\infty \left( \hat{b}_j^\dagger  \hat{b}_{j+1} + \hat{b}_{j+1}^\dagger \hat{b}_{j}  \right)
+\end{equation}
 The operator $\hat{V}^{\dagger n}_\infty$ is equivalent of create a particle in $n$ site in the framework of optical lattices for a subspace of one particle per site:
 \begin{equation}
 \hat{V}^{\dagger n}_\infty |1_0\rangle = \hat{b}^\dagger_n |0\rangle, 
