@@ -1,28 +1,5 @@
 \section{Appendix} \label{sec:appendix}
 In this paper we suggest to calculate the operator from active representations due the feasibility of operations 
-\subsection{Active representation of $\hat{n}_j$ operator} 
-We obtain for a $|\psi\rangle$ as steady state and $\hat{b}^\dagger$ as dynamic operator, write as: 
-\begin{equation} 
-\hat{b}_j^\dagger(t) = \sum_{m=-\infty}^\infty i^{m-j} J_{m-j}(-2Jt) \hat{b}_m^\dagger(0), 
-\end{equation} 
-so the expected value of $\hat{n}_j$ is: 
-\begin{equation}
-\begin{split}
-    \langle \hat{n}_j (t) \rangle &= \langle \psi(0)| \hat{b}_j^\dagger(t) \hat{b}_j (t) | \psi(0) \rangle, \\
-         &= \langle \psi(0)| \sum_{m,m'=-\infty}^\infty i^{m-m'} J_{m-j}(-2Jt) J_{m'-j} (-2Jt) \\
-         &\quad \hat{b}_m^\dagger   \hat{b}_m | \psi(0) \rangle,
-\end{split}
-\end{equation}
-In general we get a 1-d chain, if we annihilate at $m'$ site and create at $m$ we will obtain an orthogonal state, so for the different values of $m\neq m'$ we will obtain zero, so for an arbitrary inital state we get: 
-\begin{equation} 
-\langle \hat{n}_j (t) \rangle = \sum_{m=-\infty}^\infty |J_{m-j}(-2Jt)|^2 \langle \hat{n}_m(0) \rangle
-\end{equation} 
-%\begin{equation}
-%\begin{split}
-%    \langle \hat{n}_j (t) \rangle &= \langle \psi(0)| \hat{b}_j^\dagger(t) \hat{b}_j (t) | \psi(0) \rangle, \\
-%         &= \langle \psi(0)| \sum_{m,m'=-\infty}^\infty i^{m-m'} J_{m-j}(-2Jt) J_{m'-j} (-2Jt) \hat{b}_m^\dagger   \hat{b}_m | \psi(0) \rangle,
-%\end{split}
-%\end{equation}
 \subsection{Passive representation of $\hat{n}_j$ operator}
 For this framework we need to specify the initial state, first, for 2 particles in the sites $j$, $j'$ respectively, with $j\neq j'$, the state as function of time is 
 \begin{equation} 
@@ -38,16 +15,70 @@ as the temporal propagator is unitary we use the identity to get the following e
 \end{equation} 
 as the bosons obey time invariance $\hat{U}^\dagger \hat{b}^\dagger \hat{U} = \hat{U} \hat{b}^\dagger \hat{U}^\dagger$ 
 \begin{equation} 
-|\psi(t) \rangle = \hat{b}^\dagger_j \hat{b}_{j'}^\dagger |0\rangle
+|\psi(t) \rangle = \hat{b}^\dagger_j \hat{b}_{j'}^\dagger |0\rangle ,
 \end{equation}
 we derive the Heisenberg equation of motion $\hat{b}^\dagger(t)$ from  
 \begin{equation} 
-i \frac{d}{dt} \hat{b}_j^\dagger = \left[ \hat{b}_j^\dagger , \hat{H} \right]
+i \frac{d}{dt} \hat{b}_j^\dagger = \left[ \hat{b}_j^\dagger , \hat{H} \right],
 \end{equation}
 doing the commutator with \eqref{NewHamiBos} obtain: 
 \begin{equation} 
-i \frac{d}{dt} \hat{b}_j(t)= -J \left( \hat{b}_{j-1} + \hat{b}_{j+1} \right) 
+i \frac{d}{dt} \hat{b}^\dagger_j(t)= J \left( \hat{b}^\dagger_{j-1} + \hat{b}^\dagger_{j+1} \right) ,
 \end{equation} 
-consistent with the phenomenology of \eqref{EqEner}, to solve this differential equation we can use the Fourier transform $\hat{b}_j^\dagger$ and return to the original space with an inverse Fourier transform:
-
-
+consistent with the phenomenology of \eqref{EqEner}, to solve this differential equation we can use the Fourier transform $\hat{b}_j^\dagger = \frac{1}{\sqrt{N}} \sum_k e^{-ikj} \hat{b}_k^\dagger$ and return to the original space with an inverse Fourier transform, so in momentum space the differential equation decouples: 
+\begin{equation} 
+ i \frac{d}{dt} \hat{b}_k^\dagger (t) = 2J \cos (k) \hat{b}_k^\dagger (t),
+\end{equation}
+Solving 
+\begin{equation} 
+ \hat{b}_k^\dagger (t) = e^{-i2Jt\cos (k)} \hat{b}_k^\dagger (0),
+\end{equation}
+and taking the continuum limit to transform back to time space using the inverse Fourier transform 
+\begin{equation} 
+\hat{b}_j^\dagger (t) = \frac{1}{2\pi} \int_{-\pi}^{\pi} e^{-ikj} \left( e^{-i2Jt\cos (k)} \hat{b}_k^\dagger (0) \right) dk,
+\end{equation}  
+substituting $\hat{b}_k^\dagger (0) = \sum_m e^{ikm} \hat{b}_m^\dagger (0)$ 
+\begin{equation} 
+\hat{b}_j^\dagger (t) = \sum_m \left( \frac{1}{2\pi} \int_{-\pi}^{\pi}  e^{-i2Jt\cos (k)} e^{ik(m-j)} \hat{b}_m^\dagger (0)  dk \right) ,
+\end{equation} 
+using the Jacobi Anger expansion: 
+\begin{equation} 
+e^{iz\cos (k)} = \sum_{n=-\infty}^\infty i^n J_n (z) e^{ink}. 
+\end{equation} 
+Substituting with $z = -2Jt$, we obtain 
+\begin{equation} 
+\hat{b}_j^\dagger (t) = \sum_{m,n} \left( \frac{1}{2\pi} \int_{-\pi}^{\pi} i^n J_n (-2Jt)  e^{ik(m+n-j)} \hat{b}_m^\dagger (0)  dk \right) , 
+\end{equation}
+due orthogonality of complex exponentials functions, the integral will be zero unless $n+m-j=0$, so for the values $n= j-m$ and using properties of Bessel function, we get obtain the the expression: 
+\begin{equation} 
+\hat{b}_j^\dagger(t) = \sum_{m=-\infty}^\infty i^{m-j} J_{m-j}(-2Jt) \hat{b}_m^\dagger(0)
+\end{equation}
+%\begin{equation}
+%\begin{split}
+%    \hat{b}_j^\dagger (t) &= \frac{1}{2\pi} \int_{-\pi}^{\pi} e^{ikj} \left( e^{i2Jt\cos (k)} \hat{b}_k^\dagger (0) \right) dk  \\
+%         &= \left( \frac{1}{2\pi} \int_{-\pi}^{\pi} e^{ikj}  e^{i2Jt\cos (k)} \hat{b}_k^\dagger (0) dk \right) ,
+%\end{split}
+%\end{equation} 
+\subsection{Active representation of $\hat{n}_j$ operator} 
+We obtain for a $|\psi\rangle$ as steady state and $\hat{b}^\dagger$ as dynamic operator, write as: 
+\begin{equation} 
+\hat{b}_j^\dagger(t) = \sum_{m=-\infty}^\infty i^{m-j} J_{m-j}(-2Jt) \hat{b}_m^\dagger(0), 
+\end{equation} 
+so the expected value of $\hat{n}_j$ is: 
+\begin{equation}
+\begin{split}
+    \langle \hat{n}_j (t) \rangle &= \langle \psi(0)| \hat{b}_j^\dagger(t) \hat{b}_j (t) | \psi(0) \rangle, \\
+         &= \langle \psi(0)| \sum_{m,m'=-\infty}^\infty i^{m-m'} J_{m-j}(-2Jt) J_{m'-j} (-2Jt) \\
+         &\quad \hat{b}_m^\dagger   \hat{b}_m | \psi(0) \rangle,
+\end{split}
+\end{equation}
+In general we get a 1-d chain, if we annihilate at $m'$ site and create at $m$ we will obtain an orthogonal state, so for the different values of $m\neq m'$ we will obtain zero, so for an arbitrary initial state we get: 
+\begin{equation} 
+\langle \hat{n}_j (t) \rangle = \sum_{m=-\infty}^\infty |J_{m-j}(-2Jt)|^2 \langle \hat{n}_m(0) \rangle
+\end{equation} 
+%\begin{equation}
+%\begin{split}
+%    \langle \hat{n}_j (t) \rangle &= \langle \psi(0)| \hat{b}_j^\dagger(t) \hat{b}_j (t) | \psi(0) \rangle, \\
+%         &= \langle \psi(0)| \sum_{m,m'=-\infty}^\infty i^{m-m'} J_{m-j}(-2Jt) J_{m'-j} (-2Jt) \hat{b}_m^\dagger   \hat{b}_m | \psi(0) \rangle,
+%\end{split}
+%\end{equation}
