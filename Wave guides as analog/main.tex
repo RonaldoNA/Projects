@@ -119,6 +119,22 @@ We could obtain a rich dynamics for n-particles system working with a Heisenberg
 \begin{equation} 
 \langle \hat{n}_j \rangle = \sum_{m=-\infty}^\infty |J_{m-j}(-2Jt)|^2 \langle \hat{n}_m(0) \rangle  
 \end{equation} 
+\begin{equation} 
+\langle \textbf{J}_j \rangle = iJ \left\langle \hat{b}_{j+1}^\dagger\hat{b}_j -   \hat{b}_{j}^\dagger\hat{b}_{j+1} \right\rangle	
+\end{equation}  
+\begin{equation} 
+\langle \textbf{T}_j \rangle = \sum_{m=-\infty}^\infty |J_{m-j}(-2Jt)|^2 \langle \hat{n}_m(0) \rangle  
+\end{equation} 
+also: 
+\begin{equation} 
+\textbf{J} = \textit{i} J \sum_{i=1}^M \left(e^{-\textit{i} \theta\hat{n}_i}  \hat{b}_{i+1}^\dagger\hat{b}_i -   \hat{b}_{i}^\dagger\hat{b}_{i+1} e^{\textit{i} \theta\hat{n}_i} \right)
+\end{equation}
+\begin{equation} 
+\textbf{T} = J \sum_{i=1}^M \left(e^{-\textit{i}\theta\hat{n}_i}  \hat{b}_{i+1}^\dagger\hat{b}_i +   \hat{b}_{i}^\dagger\hat{b}_{i+1} e^{\textit{i}\theta\hat{n}_i} \right)
+\end{equation}
+
+
+
 \[ 
 \mathrm{S}(q) = \sum_{l=0}^M |\mathrm{J}_l ( -2Jt)|^2 - \sum_{l, m=0}^M e^{\mathrm{iq}(l-m)} |\mathrm{J}_l ( -2Jt)|^2  |\mathrm{J}_m ( -2Jt)|^2
 \] 
