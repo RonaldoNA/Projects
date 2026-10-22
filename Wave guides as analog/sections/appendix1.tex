@@ -76,6 +76,18 @@ In general we get a 1-d chain, if we annihilate at $m'$ site and create at $m$ w
 \begin{equation} 
 \langle \hat{n}_j (t) \rangle = \sum_{m=-\infty}^\infty |J_{m-j}(-2Jt)|^2 \langle \hat{n}_m(0) \rangle
 \end{equation} 
+in the case of anyons using the equation \eqref{NewHamiBos}, .... reducing for $N=2$
+\begin{equation} 
+\textit{i} \frac{d}{dt} \hat{b}_j(t) ) = -J \left( \hat{b}_{j-1} + \hat{b}_{j+1} \right) - J \left( \left( e^{-\textit{i} \theta} - 1 \right)\hat{n}_{j-1} \hat{b}_{j-1} + 2 \left( e^{\textit{i} \theta} - 1 \right) \hat{n}_j \hat{b}_{j+1} + \left( e^{-\textit{i} \theta} - 1 \right) \hat{b}_{j+1} \hat{b}_j^2 \right)
+\end{equation} 
+\begin{equation}
+\begin{split}
+\textit{i} \frac{d}{dt} \hat{b}_j(t) &= -J \left( \hat{b}_{j-1} + \hat{b}_{j+1} \right) \\
+&\quad - J \Bigl[ \left( e^{-\textit{i} \theta} - 1 \right)\hat{n}_{j-1} \hat{b}_{j-1} \\
+&\quad + 2 \left( e^{\textit{i} \theta} - 1 \right) \hat{n}_j \hat{b}_{j+1} \\
+&\quad + \left( e^{-\textit{i} \theta} - 1 \right) \hat{b}_{j+1} \hat{b}_j^2 \Bigr]
+\end{split}
+\end{equation}
 %\begin{equation}
 %\begin{split}
 %    \langle \hat{n}_j (t) \rangle &= \langle \psi(0)| \hat{b}_j^\dagger(t) \hat{b}_j (t) | \psi(0) \rangle, \\
