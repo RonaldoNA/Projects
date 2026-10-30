@@ -72,10 +72,11 @@ so the expected value of $\hat{n}_j$ is:
          &\quad \hat{b}_m^\dagger   \hat{b}_m | \psi(0) \rangle,
 \end{split}
 \end{equation}
-In general we get a 1-d chain, if we annihilate at $m'$ site and create at $m$ we will obtain an orthogonal state, so for the different values of $m\neq m'$ we will obtain zero, so for an arbitrary initial state we get: 
+In general we get a 1d chain, if we annihilate at $m'$ site and create at $m$ we will obtain an orthogonal state, so for the different values of $m\neq m'$ we will obtain zero, so for an arbitrary initial state we get: 
 \begin{equation} 
-\langle \hat{n}_j (t) \rangle = \sum_{m=-\infty}^\infty |J_{m-j}(-2Jt)|^2 \langle \hat{n}_m(0) \rangle
+\langle \hat{n}_j (t) \rangle = \sum_{m=-\infty}^\infty |J_{m-j}(2Jt)|^2 \langle \hat{n}_m(0) \rangle
 \end{equation} 
+\subsection{Dynamical properties}
 In general for the active operators are defined with the temporal propagator
 \begin{equation} 
 \langle \hat{O}(t) \rangle_{+\theta} = \langle \Psi_0 \vert{} e^{i\hat{H}_{B,+\theta} t}  \hat{O} e^{-i\hat{H}_{B,+\theta} t} \vert{} \Psi_0 \rangle
@@ -88,31 +89,57 @@ and it is useful to write the $\mathcal{K}$ invariance defined in \cite{PhysRevL
 &\quad  \left( \mathcal{K} e^{-i\hat{H}_{B,+\theta} t} \mathcal{K}^\dagger \right) \mathcal{K} \vert{} \Psi_0 \rangle 
 \end{split}
 \end{equation} 
-One should pair $\mathcal{K}$ with $\mathcal{T}$ or $\mathcal{P}$ to restores forward time evolution at angle $-\theta$ or $-U$ respectively, obtaining the following dynamical properties: 
-\begin{table}[htpb]
-\centering
-\caption{Dynamical Relations via $\mathcal{T}\mathcal{K}$ and $\mathcal{P}\mathcal{K}$}
-\label{tab:dynamical_relations}
-\begin{tabular}{p{0.46\linewidth} p{0.46\linewidth}}
-\hline\hline
-\textbf{via $\mathcal{T}\mathcal{K}$ ($\theta \leftrightarrow -\theta$)} & \textbf{via $\mathcal{P}\mathcal{K}$ ($U \leftrightarrow -U$)} \\
-\hline
-\multicolumn{2}{l}{\textit{Site Density $\hat{n}_j$}} \\
-$\langle \hat{n}_j(t) \rangle_{+\theta} = \langle \hat{n}_{j'}(t) \rangle_{-\theta}$ & $\langle \hat{n}_j(t) \rangle_{+U} = \langle \hat{n}_{j'}(t) \rangle_{-U}$ \\[1.5ex]
-
-\multicolumn{2}{l}{\textit{Anyonic Bond Energy $\hat{K}_{j,j+1}^{\text{anyon}}$}} \\
-$\langle \hat{K}_{j,j+1}^{\text{anyon}}(t) \rangle_{+\theta} $ \newline $= \langle \hat{K}_{j'-1,j'}^{\text{anyon}}(t) \rangle_{-\theta}$ & $\langle \hat{K}_{j,j+1}^{\text{anyon}}(t) \rangle_{+U} $ \newline $= -\langle \hat{K}_{j'-1,j'}^{\text{anyon}}(t) \rangle_{-U}$ \\[1.5ex]
-
-\multicolumn{2}{l}{\textit{Anyonic Current $\hat{I}_{j,j+1}^{\text{anyon}}$}} \\
-$\langle \hat{I}_{j,j+1}^{\text{anyon}}(t) \rangle_{+\theta} $ \newline $= -\langle \hat{I}_{j'-1,j'}^{\text{anyon}}(t) \rangle_{-\theta}$ & $\langle \hat{I}_{j,j+1}^{\text{anyon}}(t) \rangle_{+U} $ \newline $= -\langle \hat{I}_{j'-1,j'}^{\text{anyon}}(t) \rangle_{-U}$ \\[1.5ex]
-
-\multicolumn{2}{l}{\textit{Annihilation Operator $\hat{b}_j$}} \\
-Couples $\hat{b}_j(t)$ to \newline phase-dressed $\hat{b}_{j'}(t)$ & Couples $\hat{b}_j(t)$ to \newline $(-1)^{j'} e^{i\theta\hat{n}_{j'}} \hat{b}_{j'}(t)$ \\
-\hline\hline
-\end{tabular}
-\end{table}
-
-in the case of anyons using the equation \eqref{NewHamiBos}, .... reducing for $N=2$
+One should pair $\mathcal{K}$ with $\mathcal{T}$ or $\mathcal{P}$ to restores forward time evolution at angle $-\theta$ or $-U$ respectively, obtaining the following dynamical properties, via $\mathcal{T}\mathcal{K}$ ($\theta \leftrightarrow -\theta$): 
+\begin{equation} 
+\langle \hat{n}_j(t) \rangle_{+\theta} = \langle \hat{n}_{j'}(t) \rangle_{-\theta}, 
+\end{equation} 
+\begin{equation} 
+\langle \hat{K}_{j,j+1}^{\text{anyon}}(t) \rangle_{+\theta} = \langle \hat{K}_{j'-1,j'}^{\text{anyon}}(t) \rangle_{-\theta},
+\end{equation} 
+\begin{equation} 
+\langle \hat{I}_{j,j+1}^{\text{anyon}}(t) \rangle_{+\theta} = -\langle \hat{I}_{j'-1,j'}^{\text{anyon}}(t) \rangle_{-\theta},
+\end{equation} 
+and via $\mathcal{P}\mathcal{K}$ ($U \leftrightarrow -U$)
+\begin{equation} 
+\langle \hat{n}_j(t) \rangle_{+U} = \langle \hat{n}_{j'}(t) \rangle_{-U},
+\end{equation} 
+\begin{equation} 
+\langle \hat{K}_{j,j+1}^{\text{anyon}}(t) \rangle_{+U} = -\langle \hat{K}_{j'-1,j'}^{\text{anyon}}(t) \rangle_{-U},
+\end{equation} 
+\begin{equation} 
+\langle \hat{I}_{j,j+1}^{\text{anyon}}(t) \rangle_{+U} = -\langle \hat{I}_{j'-1,j'}^{\text{anyon}}(t) \rangle_{-U},
+\end{equation} 
+giving us an insight about the symmetry or the asymmetry of the quantum walk.
+\subsection{Solving the differential equation for the anyonic system} 
+To derive the Heisenberg equation of motion, 
+\begin{equation} 
+i\frac{d}{dt}\hat{b}_j(t) = [\hat{b}_j(t), \hat{H}^b_{+\theta} ],
+\end{equation}  
+In this case we can use the following bosonic identities: 
+\begin{equation} 
+\hat{b}_j e^{\pm i\theta \hat{n}_j} = e^{\pm i\theta(\hat{n}_j + 1)} \hat{b}_j = e^{\pm i\theta} e^{\pm i\theta \hat{n}_j} \hat{b}_j,
+\end{equation} 
+\begin{equation} 
+\hat{b}_j^\dagger e^{\pm i\theta \hat{n}_j} = e^{\mp i\theta} e^{\pm i\theta \hat{n}_j} \hat{b}_j^\dagger,
+\end{equation} 
+Only the adjacent sites $m = j-1$ and $m = j$ have non-zero commutators with $\hat{b}_j$, yielding the general operator differential equation:
+\begin{equation}\label{firstdifeq}
+\begin{split}
+\textit{i} \frac{d}{dt}\hat{b}_j &= -J \Bigr\{ e^{-i\theta \hat{n}_{j-1}} \hat{b}_{j-1}  \\
+&\quad + e^{i\theta \hat{n}_j} \left[ 1 + \left(1 - e^{-i\theta}\right)\hat{n}_j \right] \hat{b}_{j+1}  \\
+&\quad + \left(e^{-i\theta} - 1\right) \hat{b}_{j+1}^\dagger e^{-i\theta \hat{n}_j} \hat{b}_j^2 \Bigr\}
+\end{split}
+\end{equation}
+To work with this equation we need to simplify some exponential terms to polynomial terms with a truncation, defining a maximum value for particles in the chain. When the total particle number in the optical lattice is fixed to $N = 2$, the local occupation number in all sites never exceeds $n_{\max} = 2$. Acting \eqref{firstdifeq} on any two-particle state $\vert{}\Psi(0)\rangle $ in $H^b_{N=2}$ restricts the occupation numbers seen by the exponential phase operators $e^{\pm i\theta \hat{n}}$. \\
+In the third term, $\hat{b}_j^2$ acts first and removes both particles from site $j$, leaving only the $n_j = 0$ state behind. Thus $e^{-i\theta \hat{n}_j} \hat{b}_j^2 = e^0 \hat{b}_j^2 = \hat{b}_j^2$.
+The first and second term got a single annihilation ($\hat{b}_{j-1}$ and $\hat{b}_{j+1}$), once we apply $\hat{b}_{j-1}$ or $\hat{b}_{j+1}$ removes $1$ particle, there is at most $1$ particle remaining anywhere on the lattice ($n \in \{0, 1\}$). On the subspace $\{0, 1\}$, any function of $\hat{n}$ is exact at linear order ($e^{\alpha \hat{n}} = 1 + (e^\alpha - 1)\hat{n}$ and $\hat{n}^2 = \hat{n}$), simplifying 
+\begin{equation} 
+e^{-i\theta \hat{n}_{j-1}} \hat{b}_{j-1} = \left[ 1 + \left(e^{-i\theta} - 1\right)\hat{n}_{j-1} \right] \hat{b}_{j-1}
+\end{equation}
+\begin{equation} 
+e^{i\theta \hat{n}_j}\left[1 + (1 - e^{-i\theta})\hat{n}_j\right] \hat{b}_{j+1} = \left[ 1 + 2\left(e^{i\theta} - 1\right)\hat{n}_j \right] \hat{b}_{j+1}
+\end{equation} 
+Defining $\eta_\pm(\theta) \equiv e^{\pm i\theta} - 1$ and writing $\hat{n}_j = \hat{b}_j^\dagger \hat{b}_j$, the general differential equation \eqref{firstdifeq} reduces to a cubic polynomial differential equation:
 \begin{equation}
 \begin{split}
 \textit{i} \frac{d}{dt} \hat{b}_j(t) &= -J \left( \hat{b}_{j-1} + \hat{b}_{j+1} \right) \\
