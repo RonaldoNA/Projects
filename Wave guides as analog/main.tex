@@ -147,7 +147,31 @@ the Hamiltonian maps onto bosons $\hat{b}_m, \hat{b}_m^\dagger$ ($[\hat{b}_j, \h
 \begin{equation}\label{HamideAny}
 \hat{H}^b_{+\theta} = -J \sum_{m=1}^{M-1} \left( \hat{b}_m^\dagger \hat{b}_{m+1} e^{i\theta \hat{n}_m} + e^{-i\theta \hat{n}_m} \hat{b}_{m+1}^\dagger \hat{b}_m \right)
 \end{equation} 
-where $\theta \in [-\pi, \pi]$ is the statistical angle ($\theta = 0$ for free bosons, $\theta = \pi$ for pseudofermions), obtaining for our model of 2 particles ($N=2$) on 20 sites ($M=20$) (See \ref{sec:appendix}
+where $\theta \in [-\pi, \pi]$ is the statistical angle ($\theta = 0$ for free bosons, $\theta = \pi$ for pseudofermions), obtaining for our model of 2 particles ($N=2$) on infinity sites (See Appendix S.\ref{subsubDifForAny}) 
+\begin{equation}\label{Eq:DiffEqFo2Anyons}
+\begin{split}
+i\frac{d}{dt}\hat{b}_j(t) + J\left[\hat{b}_{j-1}(t) + \hat{b}_{j+1}(t)\right] = \\
+-J\Big[ \eta_-(\theta)\hat{b}_{j-1}^\dagger(t)\hat{b}_{j-1}^2(t) \\ 
++ 2\eta_+(\theta)\hat{b}_j^\dagger(t)\hat{b}_j(t)\hat{b}_{j+1}(t) \\
+ + \eta_-(\theta)\hat{b}_{j+1}^\dagger(t)\hat{b}_j^2(t) \Big]
+\end{split}  
+\end{equation}
+\subsection{Non-perturbative solution} 
+ 
+We approach the problem with an exact solution via integral $q_t \equiv 2Jt$ so the linear left-hand side of \eqref{Eq:DiffEqFo2Anyons} is inverted by the 1D free boson Bessel Green's function: 
+\begin{equation} 
+G_{j-l}(q_t) = i^{\vert{}j-l\vert{}} J_{\vert{}j-l\vert{}}(q_t), 
+\end{equation}
+where $J_n(q_t)$ is the Bessel function of the first kind. Applying Duhamel's principle converts \eqref{Eq:DiffEqFo2Anyons} into the exact operator integral equation over $\tau \in [0, q_t]$: 
+\begin{equation}
+\begin{split}
+\hat{b}_j(q_t) &= \hat{b}_j^{(0)}(q_t) \\
+&\quad + \frac{i}{2} \sum_{l=-\infty}^\infty \int_0^{q_t} d\tau \, G_{j-l}(q_t-\tau) \Big[ \eta_-(\theta)\hat{b}_{l-1}^\dagger(\tau)\hat{b}_{l-1}^2(\tau) \\
+&\quad + 2\eta_+(\theta)\hat{b}_l^\dagger(\tau)\hat{b}_l(\tau)\hat{b}_{l+1}(\tau) \\
+&\quad  + \eta_-(\theta)\hat{b}_{l+1}^\dagger(\tau)\hat{b}_l^2(\tau) \Big],
+\end{split}
+\end{equation}
+where $\hat{b}_j^{(0)}(q_t) = \sum_{m=-\infty}^\infty G_{j-m}(q_t)\hat{b}_m(0)$ is the  free boson operator.
 \section{Conclusion}
 
 \bibliographystyle{unsrt}
