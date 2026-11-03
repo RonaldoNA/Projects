@@ -1,6 +1,6 @@
 \section{Appendix} \label{sec:appendix}
 In this paper we suggest to calculate the operator from active representations due the feasibility of operations 
-\subsection{Passive representation of $\hat{n}_j$ operator}
+\subsection{Passive representation of $\hat{n}_j$ operator}\label{ap:pass}
 For this framework we need to specify the initial state, first, for 2 particles in the sites $j$, $j'$ respectively, with $j\neq j'$, the state as function of time is 
 \begin{equation} 
 |\psi(t) \rangle = e^{-i\mathcal{H} t} |\psi(0)\rangle = e^{-i\mathcal{H} t} \hat{b}_j^\dagger \hat{b}_{j'}^\dagger |0\rangle ,
@@ -58,7 +58,15 @@ due orthogonality of complex exponentials functions, the integral will be zero u
 %    \hat{b}_j^\dagger (t) &= \frac{1}{2\pi} \int_{-\pi}^{\pi} e^{ikj} \left( e^{i2Jt\cos (k)} \hat{b}_k^\dagger (0) \right) dk  \\
 %         &= \left( \frac{1}{2\pi} \int_{-\pi}^{\pi} e^{ikj}  e^{i2Jt\cos (k)} \hat{b}_k^\dagger (0) dk \right) ,
 %\end{split}
-%\end{equation} 
+%\end{equation}  
+\begin{equation} 
+\hat{b}_j^\dagger(t)=\sum_{m}G^*_{j-m}(\tau)\,\hat b_m^\dagger(0),
+\end{equation} `
+with $\tau=2Jt$ and $G_n(\tau)=i^nJ_n(\tau)$ [Eq.~(\ref{eq:Gn})]. Taking the adjoint, $\hat b_j(t)=\sum_mG_{j-m}(\tau)\hat b_m(0)$. Since $G_n^*(-\tau)=G_n(\tau)=G_{-n}(\tau)$, the two-particle state is
+\begin{equation}
+|\psi(t)\rangle=\sum_{m,m'}G_{m-j}(\tau)\,G_{m'-j'}(\tau)\,\hat b_m^\dagger\hat b_{m'}^\dagger|0\rangle .
+\end{equation}
+
 \subsection{Active representation of $\hat{n}_j$ operator} 
 We obtain for a $|\psi\rangle$ as steady state and $\hat{b}^\dagger$ as dynamic operator, write as: 
 \begin{equation} 

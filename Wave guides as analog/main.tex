@@ -1,9 +1,11 @@
-\documentclass[a4paper, amsfonts, amssymb, amsmath, reprint, showkeys, nofootinbib, twoside]{revtex4-2}
+\documentclass[a4paper, amsfonts, amssymb, amsmath, reprint, showkeys, nofootinbib ,twoside]{revtex4-2}
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[colorinlistoftodos, color=green!40, prependcaption]{todonotes}
 \input{preamble}
 \usepackage[pdftex, pdftitle={Article}, pdfauthor={Author}]{hyperref} % Para enlaces en el PDF
+
+
 %\setlength{\marginparwidth}{2.5cm}
 %\bibliographystyle{apsrev4-1} 
 \begin{document}
@@ -30,7 +32,7 @@ In this work we provide an analytical framework for describing the propagation o
 %\input{sections/acknowledgements.tex}
 \section{Introduction} 
 Los anyones son ... 
-\section{Main Idea} 
+\section{Theoretical Model} 
 \begin{tikzpicture}[scale=0.7]
   % --- Define parameters ---
   \def\spacing{1.8} % Horizontal spacing between circles
@@ -96,48 +98,49 @@ para este modelo podemos hacer una analogía con un modelo de bosones en una red
 Rewriting the Hamiltonian as 
 \begin{equation}\label{NewHamiBos}
 \hat{H} = -J \sum_{j=-\infty}^\infty \left( \hat{b}_j^\dagger  \hat{b}_{j+1} + \hat{b}_{j+1}^\dagger \hat{b}_{j}  \right)
-\end{equation}
+\end{equation} 
 The operator $\hat{V}^{\dagger n}_\infty$ is equivalent of create a particle in $n$ site in the framework of optical lattices for a subspace of one particle per site:
 \begin{equation}
 \hat{V}^{\dagger n}_\infty |1_0\rangle = \hat{b}^\dagger_n |0\rangle, 
 \end{equation}	
 Obtaining the dynamics for a particle in $0$-site 
 \begin{equation} 
-\ket{\psi_{0}(t)} = \sum_{n=-\infty}^{\infty} J_n(-2 J t)i^n \hat{b}_n^{\dagger	} \ket{0}.
+\ket{\psi_{0}(t)} = \sum_{n=-\infty}^{\infty} J_n(2 J t)i^n \hat{b}_n^{\dagger	} \ket{0}.
+\end{equation} 
+\subsection{One body observables for free bosons} 
+We could obtain a rich dynamics for $n$-particle systems working with a Heisenberg representation for the one-body operators (Appendix~\ref{ap:pass}). With the dimensionless time and the free propagator
+\begin{equation}\label{eq:Gn}
+\tau\equiv 2Jt,\qquad G_n(\tau)\equiv i^{n}J_n(\tau)=i^{|n|}J_{|n|}(\tau),
 \end{equation}
- 
-
-%\[
-%\hat{V}^{\dagger n}_\infty |2_0\rangle = \frac{1}{\sqrt{2}} \sum_{k=0}^n \binom{n}{k} \hat{c}^\dagger_n \hat{c}^\dagger_{n-k} |0\rangle
-%\]  
-%\[
-%\hat{V}^{\dagger n}_\infty |1_0, 1_1\rangle = \sum_{k=0}^n \binom{n}{k} \hat{c}^\dagger_{-k} \hat{c}^\dagger_{1-(n-k)} |0\rangle
-%\]  
+the bosonic operators evolve as $\hat b_j(t)=\sum_m G_{j-m}(\tau)\,\hat b_m$ and $\hat b^\dagger_j(t)=\sum_m G^*_{j-m}(\tau)\,\hat b^\dagger_m$. It is useful to build the one-body density matrix $\rho_{ij}(t)\equiv\langle\hat b_i^\dagger(t)\hat b_j(t)\rangle$ is then
+\begin{equation}\label{eq:rhofree}
+\rho_{ij}(t)=\sum_{m,m'}G^*_{i-m}(\tau)\,G_{j-m'}(\tau)\,\rho_{mm'}(0).
+\end{equation}
+The density is $\langle\hat n_j\rangle=\rho_{jj}$. For initial states without one-body coherences, i. e. $\rho_{mm'}(0)=\delta_{mm'}\langle\hat n_m(0)\rangle$ for Fock states, it reduces to
+\begin{equation}\label{eq:nfree}
+\langle \hat{n}_j(t) \rangle = \sum_{m} J^2_{j-m}(2Jt)\, \langle \hat{n}_m(0) \rangle .
+\end{equation}
+Each bond $(j,j+1)$ is characterized by its kinetic energy and its particle current, defined for anyons in Eqs.~(\ref{eq:Kj}) and (\ref{eq:Jj}); for bosons($\theta=0$),
+\begin{align}
+\hat{\mathbf K}_j&=-J\big(\hat b_j^\dagger\hat b_{j+1}+\hat b_{j+1}^\dagger\hat b_j\big),\\
+\hat{\mathbf J}_j&=iJ\big(\hat b_{j+1}^\dagger\hat b_j-\hat b_j^\dagger\hat b_{j+1}\big),
+\end{align}
+with $\langle\hat{\mathbf K}_j\rangle=-2J\,\mathrm{Re}\,\rho_{j,j+1}$ and $\langle\hat{\mathbf J}_j\rangle=2J\,\mathrm{Im}\,\rho_{j,j+1}$. For coherence-free initial states, $G^*_{j-m}G_{j+1-m}=iJ_{j-m}J_{j+1-m}$ is purely imaginary, so
+\begin{align}
+\langle\hat{\mathbf K}_j(t)\rangle&=0,\label{eq:Kfree}\\
+\langle\hat{\mathbf J}_j(t)\rangle&=2J\sum_m J_{j-m}(2Jt)\,J_{j+1-m}(2Jt)\,\langle\hat n_m(0)\rangle.\label{eq:Jfree}
+\end{align}
 %
-
-We could obtain a rich dynamics for n-particles system working with a Heisenberg representation for one body operators $\hat{b}^\dagger$ applied in the sites, obtaining in general the expression:
-\begin{equation} 
-\langle \hat{n}_j \rangle = \sum_{m=-\infty}^\infty |J_{m-j}(-2Jt)|^2 \langle \hat{n}_m(0) \rangle  
-\end{equation} 
-\begin{equation} 
-\langle \textbf{J}_j \rangle = iJ \left\langle \hat{b}_{j+1}^\dagger\hat{b}_j -   \hat{b}_{j}^\dagger\hat{b}_{j+1} \right\rangle	
-\end{equation}  
-\begin{equation} 
-\langle \textbf{T}_j \rangle = \sum_{m=-\infty}^\infty |J_{m-j}(-2Jt)|^2 \langle \hat{n}_m(0) \rangle  
-\end{equation} 
-also: 
-\begin{equation} 
-\textbf{J} = \textit{i} J \sum_{i=1}^M \left(e^{-\textit{i} \theta\hat{n}_i}  \hat{b}_{i+1}^\dagger\hat{b}_i -   \hat{b}_{i}^\dagger\hat{b}_{i+1} e^{\textit{i} \theta\hat{n}_i} \right)
-\end{equation}
-\begin{equation} 
-\textbf{T} = J \sum_{i=1}^M \left(e^{-\textit{i}\theta\hat{n}_i}  \hat{b}_{i+1}^\dagger\hat{b}_i +   \hat{b}_{i}^\dagger\hat{b}_{i+1} e^{\textit{i}\theta\hat{n}_i} \right)
-\end{equation}
-
-
-
-\[ 
-\mathrm{S}(q) = \sum_{l=0}^M |\mathrm{J}_l ( -2Jt)|^2 - \sum_{l, m=0}^M e^{\mathrm{iq}(l-m)} |\mathrm{J}_l ( -2Jt)|^2  |\mathrm{J}_m ( -2Jt)|^2
-\]  
+%also: 
+%\begin{equation} 
+%\textbf{J} = \textit{i} J \sum_{i=1}^M \left(e^{-\textit{i} \theta\hat{n}_i}  \hat{b}_{i+1}^\dagger\hat{b}_i -   \hat{b}_{i}^\dagger\hat{b}_{i+1} e^{\textit{i} \theta\hat{n}_i} \right)
+%\end{equation}
+%\begin{equation} 
+%\textbf{T} = J \sum_{i=1}^M \left(e^{-\textit{i}\theta\hat{n}_i}  \hat{b}_{i+1}^\dagger\hat{b}_i +   \hat{b}_{i}^\dagger\hat{b}_{i+1} e^{\textit{i}\theta\hat{n}_i} \right)
+%\end{equation}
+%\[ 
+%\mathrm{S}(q) = \sum_{l=0}^M |\mathrm{J}_l ( -2Jt)|^2 - \sum_{l, m=0}^M e^{\mathrm{iq}(l-m)} |\mathrm{J}_l ( -2Jt)|^2  |\mathrm{J}_m ( -2Jt)|^2
+%\]  
 \section{Anyonic model} 
 We study the 1D Anyon-Hubbard model \cite{Keilmann2011} in the purely kinetic regime ($U = 0$). Using the Fractional Jordan-Wigner (FJW) transformation 
 \begin{equation} 
@@ -147,7 +150,24 @@ the Hamiltonian maps onto bosons $\hat{b}_m, \hat{b}_m^\dagger$ ($[\hat{b}_j, \h
 \begin{equation}\label{HamideAny}
 \hat{H}^b_{+\theta} = -J \sum_{m=1}^{M-1} \left( \hat{b}_m^\dagger \hat{b}_{m+1} e^{i\theta \hat{n}_m} + e^{-i\theta \hat{n}_m} \hat{b}_{m+1}^\dagger \hat{b}_m \right)
 \end{equation} 
-where $\theta \in [-\pi, \pi]$ is the statistical angle ($\theta = 0$ for free bosons, $\theta = \pi$ for pseudofermions), obtaining for our model of 2 particles ($N=2$) on infinity sites (See Appendix S.\ref{subsubDifForAny}) 
+where $\theta \in [-\pi, \pi]$ is the statistical angle ($\theta = 0$ for free bosons, $\theta = \pi$ for pseudofermions). \\ 
+The kinetic energy of the bond $(j,j+1)$ and the particle current from $j$ to $j+1$ are
+\begin{align}
+\hat{\mathbf K}_j&\equiv-J\big(\hat b_j^\dagger\hat b_{j+1}e^{i\theta\hat n_j}+e^{-i\theta\hat n_j}\hat b_{j+1}^\dagger\hat b_j\big),\label{eq:Kj}\\
+&=-J(\hat a_j^\dagger\hat a_{j+1}+\mathrm{H.c.})
+\end{align} 
+\begin{align}
+\hat{\mathbf J}_j&\equiv iJ\big(e^{-i\theta\hat n_j}\hat b_{j+1}^\dagger\hat b_j-\hat b_j^\dagger\hat b_{j+1}e^{i\theta\hat n_j}\big).\label{eq:Jj}\\
+&=-iJ(\hat a_j^\dagger\hat a_{j+1}-\mathrm{H.c.})
+\end{align}
+For $\hat n_j$, they take the same values in the anyonic and bosonic representations. In this case when the systems is in absence of interactions the Hamiltonian satisfies $\hat H^b=\sum_j\hat{\mathbf K}_j$ and the operator continuity equation
+\begin{equation}\label{eq:continuity}
+\frac{d\hat n_j}{dt}=i\big[\hat H^b,\hat n_j\big]=\hat{\mathbf J}_{j-1}-\hat{\mathbf J}_j .
+\end{equation}
+
+
+
+ obtaining for our model of 2 particles ($N=2$) on infinity sites (See Appendix S.\ref{subsubDifForAny}) 
 \begin{equation}\label{Eq:DiffEqFo2Anyons}
 \begin{split}
 i\frac{d}{dt}\hat{b}_j(t) + J\left[\hat{b}_{j-1}(t) + \hat{b}_{j+1}(t)\right] = \\
@@ -155,23 +175,83 @@ i\frac{d}{dt}\hat{b}_j(t) + J\left[\hat{b}_{j-1}(t) + \hat{b}_{j+1}(t)\right] = 
 + 2\eta_+(\theta)\hat{b}_j^\dagger(t)\hat{b}_j(t)\hat{b}_{j+1}(t) \\
  + \eta_-(\theta)\hat{b}_{j+1}^\dagger(t)\hat{b}_j^2(t) \Big]
 \end{split}  
-\end{equation}
+\end{equation} 
+Now we developed a treatment we could understand the dynamics from the vacuum to two particles: 
+
+
+\onecolumngrid
 \subsection{Non-perturbative solution} 
  
-We approach the problem with an exact solution via integral $q_t \equiv 2Jt$ so the linear left-hand side of \eqref{Eq:DiffEqFo2Anyons} is inverted by the 1D free boson Bessel Green's function: 
+We approach the problem with an exact solution via integral $\tau \equiv 2Jt$ so the linear left-hand side of \eqref{Eq:DiffEqFo2Anyons} is inverted by the 1D free boson Bessel Green's function: 
 \begin{equation} 
-G_{j-l}(q_t) = i^{\vert{}j-l\vert{}} J_{\vert{}j-l\vert{}}(q_t), 
+G_{j-l}(\tau) = i^{\vert{}j-l\vert{}} J_{\vert{}j-l\vert{}}(\tau), 
 \end{equation}
-where $J_n(q_t)$ is the Bessel function of the first kind. Applying Duhamel's principle converts \eqref{Eq:DiffEqFo2Anyons} into the exact operator integral equation over $\tau \in [0, q_t]$: 
+where $J_n(\tau)$ is the Bessel function of the first kind. Applying Duhamel's principle converts \eqref{Eq:DiffEqFo2Anyons} into the exact operator integral equation over $\tau' \in [0, \tau]$: 
 \begin{equation}
 \begin{split}
-\hat{b}_j(q_t) &= \hat{b}_j^{(0)}(q_t) \\
-&\quad + \frac{i}{2} \sum_{l=-\infty}^\infty \int_0^{q_t} d\tau \, G_{j-l}(q_t-\tau) \Big[ \eta_-(\theta)\hat{b}_{l-1}^\dagger(\tau)\hat{b}_{l-1}^2(\tau) \\
-&\quad + 2\eta_+(\theta)\hat{b}_l^\dagger(\tau)\hat{b}_l(\tau)\hat{b}_{l+1}(\tau) \\
-&\quad  + \eta_-(\theta)\hat{b}_{l+1}^\dagger(\tau)\hat{b}_l^2(\tau) \Big],
+\hat{b}_j(\tau) &= \hat{b}_j^{(0)}(\tau) \\
+&\quad + \frac{i}{2} \sum_{l=-\infty}^\infty \int_0^{q_t} d\tau' \, G_{j-l}(\tau-\tau') \Big[ \eta_-(\theta)\hat{b}_{l-1}^\dagger(\tau')\hat{b}_{l-1}^2(\tau') \\
+&\quad + 2\eta_+(\theta)\hat{b}_l^\dagger(\tau')\hat{b}_l(\tau')\hat{b}_{l+1}(\tau') \\
+&\quad  + \eta_-(\theta)\hat{b}_{l+1}^\dagger(\tau')\hat{b}_l^2(\tau') \Big],
 \end{split}
 \end{equation}
-where $\hat{b}_j^{(0)}(q_t) = \sum_{m=-\infty}^\infty G_{j-m}(q_t)\hat{b}_m(0)$ is the  free boson operator.
+where $\hat{b}_j^{(0)}(\tau) = \sum_{m=-\infty}^\infty G_{j-m}(\tau)\hat{b}_m(0)$ is the  free boson operator, for simplicity we define:
+\begin{equation}\label{eq:duhamel}
+\hat b_j(\tau)=\hat b_j^{(0)}(\tau)+\frac{i}{2}\sum_l\int_0^\tau\! d\tau'\,G_{j-l}(\tau-\tau')\,\hat{\mathcal N}_l(\tau'),
+\end{equation}
+valid on $H$ for $2$ particles
+\begin{equation}\label{eq:Nl}
+\begin{split}
+\hat{\mathcal N}_l=\;&\eta_-\hat b_{l-1}^\dagger\hat b_{l-1}^2+2\eta_+\hat b_l^\dagger\hat b_l\hat b_{l+1}\\
+&+\eta_-\hat b_{l+1}^\dagger\hat b_l^2 .
+\end{split}
+\end{equation}
+In an analog way we can build the dynamical creation operator: 
+\begin{equation}\label{eq:commgen}
+[\hat H,\bd j]=-J\Big\{\bd{j-1}\,e^{i\theta\nn{j-1}}+\bd{j+1}\big[1+(1-e^{i\theta})\nn j\big]e^{-i\theta\nn j}+(e^{i\theta}-1)\,\bd j\bd j\,e^{i\theta\nn j}\,\bb{j+1}\Big\}.
+\end{equation}
+This is the Hermitian conjugate of the annihilation equation  Eq.~(\ref{Eq:DiffEqFo2Anyons}), because $[\hat H,\bd j]=[\bb j,\hat H]^\dagger$
+In the case of a system of $N\le 1$ particle the $\theta$-terms vanish on $\mathcal H_{N\le1}$, so one-body operators next to the vacuum evolve freely. For every $|\varphi\rangle\in\mathcal H_1$, we could start building with the creation operator. On the vacuum every occupation is zero, so both phases in Eq.~(\ref{eq:commgen}) equal one and the third term vanishes ($\hat{b}_{j+1}|0\rangle =0$):
+\begin{equation}
+[ \hat{H},\hat{b}^\dagger_j ] |0\rangle=-J\big(\hat{b}^\dagger_{j-1}+\hat{b}^\dagger_{j+1}\big) |0\rangle .
+\end{equation}  
+with solutions  
+\begin{equation}
+\bd y(t)\ket0=\sum_mG_{m-y}(2Jt)\,\bd m\ket0=\sum_m i^{\,m-y}J_{m-y}(2Jt)\,\bd m\ket0 .
+\end{equation}
+One anyon is a free particle, as a single photon in the waveguide array, giving us the known solutions \cite{Jones1965Coupling, Bessen:2006gxf}. The statistical angle cannot appear before the second particle is created. \\ 
+For the second creation operator $\bd j$ acts for the two particles states, reducing again the differential equation in form: 
+\begin{equation}
+e^{i\theta\nn{j-1}}\to1+\eta_+\nn{j-1},\qquad \big[1+(1-e^{i\theta})\nn j\big]e^{-i\theta\nn j}\to1+2\eta_-\nn j,\qquad e^{i\theta\nn j}\bb{j+1}\to\bb{j+1}.
+\end{equation}
+obtaining the differential equation for the creation operator: 
+\begin{equation}\label{eq:r2}
+i\frac{d\bd j}{dt}=-J\big(\bd{j-1}+\bd{j+1}\big)-J\Big[\eta_+\,\bd{j-1}\bd{j-1}\bb{j-1}+2\eta_-\,\bd{j+1}\bd j\bb j+\eta_+\,\bd j\bd j\bb{j+1}\Big].
+\end{equation} 
+\subsection{Waveguide Model}
+Here we could extract the extra term added as a potential for our original Hamiltonian $\hat V=\hat H-\hat H_0$ vanishes on zero particle and one particle Hamiltonian $\Hs0\oplus\Hs1$ and, on $\Hs2$, equals
+\begin{equation}\label{Eq:Vpot}
+\hat V=-J\sum_l\Big[\eta_+\,\bd l\bd l\,\bb l\bb{l+1}+\eta_-\,\bd{l+1}\bd l\,\bb l\bb l\Big],
+\end{equation}
+So we can characterize the behavior for doublons in an optical lattice 
+\begin{align}
+\hat V\ket{l,l+1}&=-\sqrt2J\eta_+\ket{2_l},\\ \hat V\ket{2_l}&=-\sqrt2J\eta_-\ket{l,l+1}.
+\end{align}
+The three cubic terms of Eq.~(\ref{eq:r2}) are $\hat V$ acting just after the creation, for the three positions $k$ of the first particle:
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+first particle at | & created pair | & what $\hat V$ does\\
+\midrule
+$k=j-1$ & pair $(j-1,j)$ & joins it into a doublon at $j-1$, amplitude $\propto\eta_+$\\
+$k=j$ & doublon at $j$ & splits it into the pair $(j,j+1)$, amplitude $\propto\eta_-$\\
+$k=j+1$ & pair $(j,j+1)$ & joins it into a doublon at $j$, amplitude $\propto\eta_+$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Only the link between a doublon at $l$ and the pair $(l,l+1)$ to its right carries the statistics. The link between a doublon at $l+1$ and the same pair is free.
+
+
 \section{Conclusion}
 
 \bibliographystyle{unsrt}
