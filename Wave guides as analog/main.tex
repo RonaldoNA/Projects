@@ -181,8 +181,7 @@ Now we developed a treatment we could understand the dynamics from the vacuum to
 
 \onecolumngrid
 \subsection{Non-perturbative solution} 
- 
-We approach the problem with an exact solution via integral $\tau \equiv 2Jt$ so the linear left-hand side of \eqref{Eq:DiffEqFo2Anyons} is inverted by the 1D free boson Bessel Green's function: 
+We write $\Hs N$ for the $N$-particle space, we could solve the problem via exact integrals , defining $\tau \equiv 2Jt$ so the linear left-hand side of \eqref{Eq:DiffEqFo2Anyons} is inverted by the 1D free boson Bessel Green's function: 
 \begin{equation} 
 G_{j-l}(\tau) = i^{\vert{}j-l\vert{}} J_{\vert{}j-l\vert{}}(\tau), 
 \end{equation}
@@ -217,7 +216,7 @@ In the case of a system of $N\le 1$ particle the $\theta$-terms vanish on $\math
 \end{equation}  
 with solutions  
 \begin{equation}
-\bd y(t)\ket0=\sum_mG_{m-y}(2Jt)\,\bd m\ket0=\sum_m i^{\,m-y}J_{m-y}(2Jt)\,\bd m\ket0 .
+\bd y(t)\ket0=\sum_mG_{m-y}(\tau)\,\bd m\ket0=\sum_m i^{\,m-y}J_{m-y}(\tau)\,\bd m\ket0 .
 \end{equation}
 One anyon is a free particle, as a single photon in the waveguide array, giving us the known solutions \cite{Jones1965Coupling, Bessen:2006gxf}. The statistical angle cannot appear before the second particle is created. \\ 
 For the second creation operator $\bd j$ acts for the two particles states, reducing again the differential equation in form: 
@@ -226,8 +225,98 @@ e^{i\theta\nn{j-1}}\to1+\eta_+\nn{j-1},\qquad \big[1+(1-e^{i\theta})\nn j\big]e^
 \end{equation}
 obtaining the differential equation for the creation operator: 
 \begin{equation}\label{eq:r2}
-i\frac{d\bd j}{dt}=-J\big(\bd{j-1}+\bd{j+1}\big)-J\Big[\eta_+\,\bd{j-1}\bd{j-1}\bb{j-1}+2\eta_-\,\bd{j+1}\bd j\bb j+\eta_+\,\bd j\bd j\bb{j+1}\Big].
+-i\frac{d\bd j}{dt}=-J\big(\bd{j-1}+\bd{j+1}\big)-J\Big[\eta_+\,\bd{j-1}\bd{j-1}\bb{j-1}+2\eta_-\,\bd{j+1}\bd j\bb j+\eta_+\,\bd j\bd j\bb{j+1}\Big],
+\end{equation}  
+\begin{equation}\label{eq:cubicdag}
+i\frac{d\bd j}{d\tau}=+\frac12\big(\bd{j-1}+\bd{j+1}\big)+\frac12\hat{\mathcal N}^\dagger_j\qquad\text{on }\Hs1,\qquad
+\hat{\mathcal N}^\dagger_l=\eta_+\bd{l-1}\bd{l-1}\bb{l-1}+2\eta_-\bd{l+1}\bd l\bb l+\eta_+\bd l\bd l\bb{l+1}.
+\end{equation}
+So we could use Duhamel's principle again and find the exact integral form of  the creation operator: 
+\begin{equation}\label{eq:bdagint}
+\hat b^\dagger_j(\tau)=\hat b^{(0)\dagger}_j(\tau)-\frac i2\sum_l\int_0^\tau\!d\tau'\,G^*_{j-l}(\tau-\tau')\,\hat{\mathcal N}^\dagger_l(\tau').
+\end{equation}
+  For a two-particle state $\ket\Psi$,
+\begin{equation}\label{eq:P}
+P_{r,j}(\tau)\equiv\bra0\bb r(\tau)\bb j(\tau)\ket\Psi=\bra0\bb r\bb j\ket{\Psi(t)},\qquad u_l\equiv P_{l,l},\qquad v_l\equiv P_{l,l+1},
+\end{equation}
+with $\ket{\Psi(t)}=\frac12\sum_{r,j}P_{r,j}\,\bd r\bd j\ket0$ and $\sum_{r,j}|P_{r,j}|^2=2$. The doublon amplitude is $u_l$, and $v_l$ is the amplitude of the nearest-neighbour pair. \\ 
+\subsection{Evolution of the 2 particles states} 
+$0\leftrightarrow1$. Every term of $\hat{\mathcal N}_l$ has two annihilators, so it vanishes on $\Hs{N\le1}$. One-particle operators next to the vacuum therefore evolve as a one free particle:
+\begin{equation}\label{eq:rung01}
+\bra0\bb r(\tau)=\bra0\hat b^{(0)}_r(\tau)\ \ \text{on }\Hs1,\qquad
+\bd m(\tau)\ket0=\hat b^{(0)\dagger}_m(\tau)\ket0=\sum_sG^*_{m-s}(\tau)\,\bd s\ket0 .
+\end{equation}
+$1\leftrightarrow2$. Two annihilators take $\ket\Psi\in\Hs2$ to the vacuum, $\bb l(\tau)\bb{l'}(\tau)\ket\Psi=P_{l,l'}(\tau)\ket0$. Hence
+\begin{equation}
+\hat{\mathcal N}_l(\tau')\ket\Psi=\Big[\eta_-u_{l-1}\,\hat b^{(0)\dagger}_{l-1}(\tau')+2\eta_+v_l\,\hat b^{(0)\dagger}_l(\tau')+\eta_-u_l\,\hat b^{(0)\dagger}_{l+1}(\tau')\Big]_{\tau'}\ket0,
+\end{equation}
+and Eqs.~(\ref{eq:duhamel}) and (\ref{eq:bdagint}) give the exact action of annihilation and creation operators:
+\begin{equation}\label{eq:action}
+\begin{split}
+\bb j(\tau)\ket\Psi&=\hat b^{(0)}_j(\tau)\ket\Psi+\frac i2\sum_l\int_0^\tau\!d\tau'\,G_{j-l}(\tau-\tau')\Big[\eta_-u_{l-1}\hat b^{(0)\dagger}_{l-1}+2\eta_+v_l\hat b^{(0)\dagger}_l+\eta_-u_l\hat b^{(0)\dagger}_{l+1}\Big]_{\tau'}\ket0,\\
+\bra\Psi\bd j(\tau)&=\bra\Psi\hat b^{(0)\dagger}_j(\tau)-\frac i2\sum_l\int_0^\tau\!d\tau'\,G^*_{j-l}(\tau-\tau')\,\bra0\Big[\eta_+u^*_{l-1}\hat b^{(0)}_{l-1}+2\eta_-v^*_l\hat b^{(0)}_l+\eta_+u^*_l\hat b^{(0)}_{l+1}\Big]_{\tau'} .
+\end{split}
+\end{equation}
+The statistics enters only through the contact amplitudes of doublons in the lattice.\\
+We could give the Volterra equation to $P$, to do that we project Eq.~(\ref{eq:action}) on $\bra0\bb r(\tau)=\bra0\hat b^{(0)}_r(\tau)$ and use $\bra0\hat b^{(0)}_r(\tau)\hat b^{(0)\dagger}_m(\tau')\ket0=G_{r-m}(\tau-\tau')$:
+\begin{equation}\label{eq:volP}
+\begin{split}
+P_{r,j}(\tau)=P^{0}_{r,j}(\tau)+\frac i2\int_0^\tau\!d\tau'\sum_l\Big\{&\eta_-\big[G_{j-l-1}G_{r-l}+G_{j-l}G_{r-l-1}\big]_{\tau-\tau'}u_l(\tau')\\
+&+2\eta_+\big[G_{j-l}G_{r-l}\big]_{\tau-\tau'}v_l(\tau')\Big\},
+\end{split}
+\end{equation}
+with 
+\begin{equation} 
+P^0_{r,j}(\tau)=\sum_{x,y}P_{x,y}(t=0)G_{r-x}(\tau)G_{j-y}(\tau).
 \end{equation} 
+and defining 
+\begin{equation} 
+c_{x,y} = P_{x,y}(t=0)
+\end{equation}
+\subsection{Observables}
+\paragraph{Density} For quantum walk we obtain the expected value of particles of each site
+\begin{equation}\label{eq:n}
+\langle \hat{n}_j(\tau)\rangle =\bra\Psi\bd j(\tau)\bb j(\tau)\ket\Psi,
+\end{equation} 
+We could use the identity matrix in the one particle space due the annihilation operator in $j$ and the evolved one particle sttes are complete there $\bb j(\tau)\ket\Psi\in\Hs1$, 
+\begin{equation}
+\sum_r\hat b^{(0)\dagger}_r(\tau)\ket0\bra0\hat b^{(0)}_r(\tau)=\hat{\mathbb I}_{\Hs1}.
+\end{equation}
+Inserting this between $\bd i(\tau)$ and $\bb j(\tau)$: 
+\begin{equation}\label{eq:densityeqproj} 
+\langle \hat{n}_j(\tau)\rangle =\sum_rP^*_{r,j}(\tau)P_{r,j}(\tau) =\sum_r\big|P_{r,j}(\tau)\big|^2
+\end{equation}
+
+\paragraph{Current and energy.} For the bond $(j,j+1)$,
+\begin{equation}
+\hat{\mathbf K}_j=-J\big(\bd j\bb{j+1}e^{i\theta\nn j}+\mathrm{H.c.}\big),\qquad
+\hat{\mathbf J}_j=iJ\big(e^{-i\theta\nn j}\bd{j+1}\bb j-\bd j\bb{j+1}e^{i\theta\nn j}\big).
+\end{equation}
+In $C_j\equiv\langle\bd je^{i\theta\nn j}\bb{j+1}\rangle$ the phase acts on $\Hs1$ dues the annihilation operator, and we can simplify this equation using $e^{i\theta\nn j}=1+\eta_+\nn j$, and then we apply $\langle\bd j\bd j\bb j\bb{j+1}\rangle=u^*_jv_j$, and with the same expression of the Eq. \eqref{eq:densityeqproj}. Therefore the expressions for the current and the hoping energy
+\begin{equation}\label{eq:KJ}
+C_j=\sum_rP^*_{r,j}P_{r,j+1}+\eta_+\,u^*_j\,v_j,
+\end{equation} 
+\begin{equation} 
+\mathbf K_j=-2J\,\mathrm{Re}\,C_j,
+\end{equation}
+\begin{equation} 
+ \mathbf J_j=2J\,\mathrm{Im}\,C_j.
+\end{equation}
+Besides we got the continuity equation $dn_j/dt=\mathbf J_{j-1}-\mathbf J_j$ which relates the density number and the current of the system. 
+
+\paragraph{Density correlations and structure factor.} We use the static structure factor defined \cite{Caballero0} as
+\begin{equation} 
+S(q)=\frac1D\sum_{j,l}e^{iq(j-l)}\big(\langle\nn j\nn l\rangle-\langle\nn j\rangle\langle\nn l\rangle\big)
+\end{equation}
+Since $\bb l\bb j\ket\Psi=P_{l,j}\ket0$,
+\begin{equation}\label{eq:nn}
+\langle\nn j\nn l\rangle=\langle\bd j\bd l\bb l\bb j\rangle+\delta_{jl}n_j=\Gamma_{jl}+\delta_{jl}n_j,\qquad \Gamma_{jl}\equiv|P_{j,l}|^2 .
+\end{equation}
+$\Gamma_{jl}$ is the two-particle correlation or the density-density correlator !CHECAR PAPER GREINER Y TAMBIEN the coincidence map of a two-photon walk in the waveguide array. With $\tilde n(q)=\sum_je^{iqj}n_j$, so it the becomes
+\begin{equation}\label{eq:S}
+S(q)=\frac1D\Big[\,N+\sum_{j,l}e^{iq(j-l)}\,\Gamma_{jl}-\big|\tilde n(q)\big|^2\Big],\qquad N=2
+\end{equation}
+$D=S_{max}$ after all the evaluations, Eq.~(\ref{eq:S}) gives back the single-particle $S(q)=\sum_lJ_l^2-\sum_{l,m}e^{iq(l-m)}J_l^2J_m^2$ calculated before.
 \subsection{Waveguide Model}
 Here we could extract the extra term added as a potential for our original Hamiltonian $\hat V=\hat H-\hat H_0$ vanishes on zero particle and one particle Hamiltonian $\Hs0\oplus\Hs1$ and, on $\Hs2$, equals
 \begin{equation}\label{Eq:Vpot}
@@ -250,6 +339,37 @@ $k=j+1$ & pair $(j,j+1)$ & joins it into a doublon at $j$, amplitude $\propto\et
 \end{tabular}
 \end{center}
 Only the link between a doublon at $l$ and the pair $(l,l+1)$ to its right carries the statistics. The link between a doublon at $l+1$ and the same pair is free.
+\section{Examples} 
+\subsection{$|\dots 0110\dots \rangle$ state}
+The initial state gives $c_{01}=c_{10}=1$, so
+\begin{equation}
+P^0_{r,j}=G_rG_{j-1}+G_{r-1}G_j=i^{\,r+j-1}\big(J_rJ_{j-1}+J_{r-1}J_j\big),
+\end{equation}
+\begin{equation} 
+u^0_l=-2i(-1)^lJ_lJ_{l-1},\qquad v^0_l=(-1)^l\big(J_l^2+J_{l-1}J_{l+1}\big).
+\end{equation}
+\textbf{Results}\\
+\begin{align}
+n_j=J_j^2+J_{j-1}^2  \\
+\mathbf J_j=\frac{4Jj}{\tau}\,J_j^2,\qquad \mathbf K_j=0, \\
+\Gamma_{jl}=\big(J_jJ_{l-1}+J_{j-1}J_l\big)^2,\\
+S(q)=\frac{2}{S_{max}}\Big[1-J_0^2(z)+J_1^2(z)\Big],\qquad z=2\tau\sin\tfrac q2 . 
+\end{align}
+
+\subsection{Superposition state $|\psi\rangle$}
+Here $\ket a= \bd{0}\bd1\ket0 $ $\ket b=\bd{-1}\bd1\ket0$ and $\ket c=\bd0\bd2\ket0$. The initial state gives are $c_{01}=c_{10}=\alpha_a$, $c_{-1,1}=c_{1,-1}=\alpha_b$ and $c_{02}=c_{20}=\alpha_c$, and by linearity $P=\sum_s\alpha_sP^{(s)}$. With $f=0.01$: $\alpha_a=\sqrt{2\rho_+-1}=0.989846$ and $\alpha_b=\alpha_c=\sqrt{\rho_-}=0.100509$. 
+\begin{equation}
+\begin{split}
+n_j&=\alpha_b^2J_{j+1}^2+(\alpha_a^2+\alpha_c^2)J_j^2+(\alpha_a^2+\alpha_b^2)J_{j-1}^2+\alpha_c^2J_{j-2}^2,\\
+\mathbf J_j&=2J\sum_m   \langle n_m(0) \rangle \,J_{j-m}J_{j+1-m},\\
+\mathbf K_j&=-2J\Big\{\alpha_a\alpha_b\big[J_{j+1}^2-J_jJ_{j+2}\big]+\alpha_a\alpha_c\big[J_{j-1}^2-J_{j-2}J_j\big]\Big\},\\ 
+S(q)&=\frac1D\Big[\,N+\sum_{j,l}e^{iq(j-l)}\,\Gamma_{jl}-\big|\tilde n(q)\big|^2\Big],\qquad N=2 \\
+\tilde n(q)&=J_0(z)\sum_m  \langle n_m(0) \rangle  \,e^{iqm},\\
+\sum_{j,l}e^{iq(j-l)}\Gamma_{jl}&=\sum_{x,y,x',y'}c_{xy}\,c^*_{x'y'}\,e^{iq(x+x'-y-y')/2}\,(-1)^{y-y'}J_{x-x'}(z)\,J_{y-y'}(z),
+\end{split}
+\end{equation}
+with $n_{-1}(0)=\alpha_b^2$, $n_0(0)=\alpha_a^2+\alpha_c^2$, $n_1(0)=\alpha_a^2+\alpha_b^2$ and $n_2(0)=\alpha_c^2$. Inserted in Eq.~(\ref{eq:S}) they give $S(q)$ at $\theta=0$.
+
 
 
 \section{Conclusion}
